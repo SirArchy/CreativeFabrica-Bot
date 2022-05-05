@@ -10,7 +10,7 @@ def getFilename_fromCd(cd):
     return None
     return fname[0]
 
-def download_file(url):
+def download_file(url): #herausfinden wo Dateien gespeichert werden
     r = requests.get(url, allow_redirects=True)
     filename = getFilename_fromCd(r.headers.get('content-disposition'))
     open(filename, 'wb').write(r.content)
