@@ -1,20 +1,24 @@
-import requests
-import re
+# import module
+from selenium import webdriver
+import time
 
-def getFilename_fromCd(cd):
-#Get filename from content-disposition
-    if not cd:
-    return None
-    fname = re.findall('filename=(.+)', cd)
-    if len(fname) == 0:
-    return None
-    return fname[0]
+# Create the webdriver object. Here the
+# chromedriver is present in the driver
+# folder of the root directory.
+driver = webdriver.Chrome(r"./driver/chromedriver")
 
-def download_file(url): #herausfinden wo Dateien gespeichert werden
-    r = requests.get(url, allow_redirects=True)
-    filename = getFilename_fromCd(r.headers.get('content-disposition'))
-    open(filename, 'wb').write(r.content)
+# get https://www.geeksforgeeks.org/
+driver.get("https://www.geeksforgeeks.org/")
 
-download_file('https://www.creativefabrica.com/de/cfsecure/download/?dg=13603093&_wpnonce=9ac01f884b')
-download_file('https://www.creativefabrica.com/de/cfsecure/download/?dg=28114472&_wpnonce=5d584069cf')
-download_file('https://www.creativefabrica.com/de/cfsecure/download/?dg=28593430&_wpnonce=f2c3d96ba1')
+# Maximize the window and let code stall
+# for 10s to properly maximise the window.
+time.sleep(5)
+
+# Obtain button by link text and click.
+button1 = driver.find_element_by_link_text("Sign In")
+button2 = driver.find_element_by_link_text("Sign In")
+button3 = driver.find_element_by_link_text("Sign In")
+button1.click()
+button2.click()
+button3.click()
+
