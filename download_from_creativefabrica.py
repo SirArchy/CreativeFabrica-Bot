@@ -5,7 +5,7 @@ import time
 
 # Create the webdriver object
 chrome_options = webdriver.ChromeOptions()
-prefs = {'download.default_directory' : 'E:\Cricut Free Stuff'}
+prefs = {'download.default_directory' : ''} #enter your download directory here
 chrome_options.add_experimental_option('prefs', prefs)
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
@@ -19,8 +19,8 @@ time.sleep(1)
 close_modal = driver.find_element(By.CLASS_NAME,'close-modal').click()
 close__notification_modal = driver.find_element(By.ID,'onesignal-slidedown-cancel-button').click()
 signin_button = driver.find_element(By.ID ,'menu-item-icon-login').click()
-username_field = driver.find_element(By.NAME ,'username').send_keys('')
-pw_field = driver.find_element(By.NAME ,'password').send_keys('')
+username_field = driver.find_element(By.NAME ,'username').send_keys('') #enter you username here
+pw_field = driver.find_element(By.NAME ,'password').send_keys('') #enter you password here
 login_button = driver.find_element(By.NAME, 'login').click()
 time.sleep(3)
 driver.execute_script("window.scrollTo(0, 730)") 
