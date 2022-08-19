@@ -1,4 +1,4 @@
-#  Intelligent Raman Spectral Analysis
+#  CreativeFabrica Download Bot
 
 ## Table of contents
 * [General info](#general-info)
